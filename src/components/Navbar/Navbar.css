@@ -1,0 +1,71 @@
+/* Adjust the logo size */
+.navbar img {
+    max-width: 100%;
+    height: auto;
+  }
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:20px 10%;
+    color: #ddd;
+    border-bottom: 2px solid #3c3c3c;
+}
+
+.navbar ul{
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+.navbar li{
+    cursor: pointer;
+}
+  
+   /* Specifically target the logo */
+.navbar img.logo {
+    width: 100px; /* Adjust to your desired size */
+    height: auto; /* Maintain aspect ratio */
+  }
+.nav-right select{
+    padding: 5px 8px;
+    border-radius: 6px;
+    border: 2px solid white;
+    background:transparent;
+    color: white;
+}
+
+.nav-right select option{
+    background-color: #09005c;
+    color: white;
+}
+  
+  /* Adjust layout for nav-right */
+.nav-right {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: max(1vw,12px); /* Add spacing between elements */
+  }
+
+.nav-right select {
+    font-size: 14px; /* Adjust size */
+    padding: 5px;
+  }
+
+.nav-right button {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #007bff; /* Example background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Adjust size of the icon inside the button */
+.nav-right button img {
+    width: 15px; /* Adjust size for the icon */
+    height: auto;
+    margin-left: 5px; /* Add spacing next to text */
+  }
