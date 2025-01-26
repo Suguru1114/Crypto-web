@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 export const CoinContext = createContext();
 
@@ -19,13 +19,19 @@ const CoinContextProvider = (props) =>{
                 }
               };
               
-              fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=aud', options)
+              fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`, options)
                 .then(res => res.json())
                 .then(res => setAllCoin(response))
                 .catch(err => console.error(err));
 
         }
 
+    useEffect(()=>{
+        fetchAllCoin();
+
+    }, [currency])
+    
+    
         const contextValue = {
 
         }
