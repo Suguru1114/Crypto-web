@@ -40,6 +40,8 @@ const Home = () => {
                 <p>{item.name + " - " +item.symbol}</p>
               </div>
               <p>{currency.symbol} {item.current_price}</p>
+              <p>{Math.floor(item.price_change_percentage_24h*100)/100} %</p>
+              {/* addding percentage  */}
             </div>
           ))
         }
