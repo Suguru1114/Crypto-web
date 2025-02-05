@@ -4,7 +4,7 @@ export const CoinContext = createContext();
 
 const CoinContextProvider = (props) =>{
 
-        const[allcoin, setAllCoin] = useState([]);
+        const[allCoin, setAllCoin] = useState([]);
         const[currency, setCurrency] = useState({
             name : "aud",
             symbol: "$"
@@ -21,7 +21,8 @@ const CoinContextProvider = (props) =>{
               
               fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`, options)
                 .then(res => res.json())
-                .then(res => setAllCoin(response))
+                .then(res => setAllCoin(res))  
+                // (response  > res))
                 .catch(err => console.error(err));
 
         }
@@ -33,6 +34,7 @@ const CoinContextProvider = (props) =>{
     
     
         const contextValue = {
+            allCoin, currency, setCurrency
 
         }
             return (

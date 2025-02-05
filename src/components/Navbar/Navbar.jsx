@@ -18,7 +18,7 @@ const Navbar = () => {
         break;
       }
         case "jpy": {
-          setCurrency({jpy: "eur", symbol: "¥"});
+          setCurrency({name: "jpy", symbol: "¥"});
           break;
       }  
       default:{
