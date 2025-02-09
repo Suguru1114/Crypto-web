@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import './Home.css'
 import { CoinContext } from '../../context/CoinContext'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
@@ -35,7 +36,7 @@ const Home = () => {
         marketplace. Sign up to explore more about cryptos.</p>
         <form onSubmit={searchHandler}>
 
-          <input onChange={inputHandler} value={input} type="text" placeholder='Search crypto..' required/>
+          <input onChange={inputHandler} list='coinlist' value={input} type="text" placeholder='Search crypto..' required/>
         
           <datalist id="coinlist">
            {allCoin.map((item, index)=>(<option key={index} value={item.name}/>))}
@@ -60,7 +61,8 @@ const Home = () => {
         </div>
         {
           displayCoin.slice(0,10).map((item, index) => (
-            <div className="table-layout" key={index}>
+            //create new page after click to the individual coin
+            <Link to={`/coin/${item.id}`}className="table-layout" key={index}>
               <p>{item.market_cap_rank}</p>
               <div>
                 <img src={item.image} alt="" />
@@ -75,7 +77,7 @@ const Home = () => {
 
               <p className='market-cap'>{currency.symbol}{item.market_cap.toLocaleString()}</p>
               {/* toLocaleString() adding . in numbers*/}
-            </div>
+            </Link>
           ))
         }
        </div> 
