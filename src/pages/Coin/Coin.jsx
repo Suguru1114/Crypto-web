@@ -13,7 +13,7 @@ function Coin() {
   const fetchCoinData = async ()=>{
     const options = {method: 'GET', headers: {accept: 'application/json'}};
 
-    fetch(`https://pro-api.coingecko.com/api/v3/coins/${coinId}`, options)
+    fetch(`https://api.coingecko.com/api/v3/coins/${coinId}`)
       .then(res => res.json())
       .then(res => setCoinData(res))
       .catch(err => console.error(err));
@@ -23,14 +23,23 @@ function Coin() {
       fetchCoinData();
      },[currency])
 
+if(coinData){
   return (
     <div className='coin'>
       <div className='coin-name'>
-        <img src={coinData.image.large} alt=" "/>
+        <img src={coinData.image?.large} alt=" "/>
         <p><b>{coinData.name} ({coinData.symbol.toUpperCase()})</b></p>
       </div>
     </div>
-  )
+   )
+}else{
+  return (
+    <div className='spinner'>
+      <div className='spin'></div>
+
+    </div>
+   ) 
+  }  
 }
 
 export default Coin
