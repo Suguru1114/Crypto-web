@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Chart from 'react-google-charts'
 import { useState } from 'react'
 
-const LineChart = (historicalData) => {
+const LineChart = ({historicalData}) => {
 
 const [data, setData] = useState([["Date", "Prices"]])
 
@@ -20,7 +20,7 @@ useEffect(()=>{
 
     return (
         <Chart
-            chartType='lineChart'
+            chartType='LineChart'
             data={data}
             height="100%"
             legendToggle
